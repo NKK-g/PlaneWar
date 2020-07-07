@@ -1,7 +1,7 @@
-package com.wowowo.thread;
+package thread;
 
 
-import com.wowowo.view.MyPanel;
+import view.MyPanel;
 
 public class DrawableThread extends Thread{
 

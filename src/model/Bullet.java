@@ -1,10 +1,10 @@
-package com.wowowo.model;
+package model;
 
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-import com.wowowo.view.MyPanel;
+import view.MyPanel;
 
 public class Bullet {
 	

@@ -5,9 +5,9 @@ import java.awt.Toolkit;
 
 import view.MyPanel;
 
-public class Item01 extends Item{
-	
-	public Item01(MyPanel myPanel)
+public class Item02 extends Item{
+
+	public Item02(MyPanel myPanel)
 	{
 		super(myPanel);
 		
@@ -32,7 +32,7 @@ public class Item01 extends Item{
 		
 		this.speed=3;
 		
-		this.count=100;
+		this.count=200;
 	}
 
 }

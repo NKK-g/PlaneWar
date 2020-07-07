@@ -1,9 +1,9 @@
-package com.wowowo.listener;
+package listener;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import com.wowowo.view.BaseFrame;
+import view.BaseFrame;
 
 public class FrameMouseListener implements MouseListener {
 	

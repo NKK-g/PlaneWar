@@ -1,4 +1,7 @@
-package com.wowowo.view;
+package view;
+
+
+import thread.BulletMusicThread;
 
 public class Main {
 
@@ -6,6 +9,9 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		new BaseFrame();
+		
+		new BulletMusicThread("video/bjmusic.wav").start();
+		
 		
 
 	}

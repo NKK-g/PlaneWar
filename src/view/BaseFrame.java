@@ -1,13 +1,21 @@
-package com.wowowo.view;
+package view;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-import com.wowowo.listener.FrameMouseListener;
-import com.wowowo.listener.FrameMouseMotionListener;
-import com.wowowo.model.Enemy001;
+import listener.FrameMouseListener;
+import model.Enemy001;
+import model.Enemy002;
+import model.Enemy003;
+import model.Enemy004;
+import model.Enemy005;
+import model.Enemy006;
+import model.Enemy007;
+import model.Enemy008;
+import model.Enemy009;
+import model.Enemy010;
 
 public class BaseFrame extends JFrame {
 	
@@ -19,7 +27,6 @@ public class BaseFrame extends JFrame {
 	
 	public FrameMouseListener frameMouseListener;
 	
-//	public FrameMouseMotionListener frameMouseMotionListener;
 	
 	public void setTouchListener()
 	{
@@ -28,12 +35,6 @@ public class BaseFrame extends JFrame {
 		   this.addMouseListener(this.frameMouseListener);
 	}
 	
-//	public void setMouseMotionListener()
-//	{
-//		   this.frameMouseMotionListener=new FrameMouseMotionListener();
-//		   this.frameMouseMotionListener.baseFrame=this;
-//		   this.addMouseMotionListener(this.frameMouseMotionListener);
-//	}
 	
 	 public void addEnemyType(Class c)
 	 {
@@ -54,11 +55,23 @@ public class BaseFrame extends JFrame {
 	 
 	 this.add( this.panel);	 
 	 
+	 //设置飞机跟随鼠标移动
 	 setTouchListener();
 	 
-	 //setMouseMotionListener();
 	 
+	 //添加敌机
 	 addEnemyType(Enemy001.class);
+	 addEnemyType(Enemy002.class);
+	 addEnemyType(Enemy003.class);
+	 addEnemyType(Enemy004.class);
+	 addEnemyType(Enemy005.class);
+	 addEnemyType(Enemy006.class);
+	 addEnemyType(Enemy007.class);
+	 addEnemyType(Enemy008.class);
+	 addEnemyType(Enemy009.class);
+	 addEnemyType(Enemy010.class);
+	 
+	 
 	 
 	 setVisible(true);
 	 

@@ -1,11 +1,11 @@
-package com.wowowo.model;
+package model;
 
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-import com.wowowo.view.BaseFrame;
-import com.wowowo.view.MyPanel;
+import view.BaseFrame;
+import view.MyPanel;
 
 public class Player {
 	
@@ -34,7 +34,9 @@ public class Player {
 	 
 	 public int imageIndex=0;
 	 
-	 public int attackMode=2; //火力等级
+	 public int attackMode=1; //火力等级
+	 
+	 public int count = 0; //存放的是玩家的分数
 	
 	 public Player(MyPanel myPanel)
 	 {
@@ -57,6 +59,14 @@ public class Player {
 			   if(imageIndex>=this.images.length)
 				   imageIndex=0;
 		   }
+		   
+		   //根据积分 设置火力等级
+		   if(this.count<500)			   
+			   attackMode=1;
+		   else if(this.count<2000)
+			   attackMode=2;
+		   else 
+		        attackMode=3;
 		   
 		   //判断是否吃到道具
 		   for(int i=0;i<this.myPanel.items.size();i++)

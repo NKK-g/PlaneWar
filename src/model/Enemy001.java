@@ -1,9 +1,9 @@
-package com.wowowo.model;
+package model;
 
 import java.awt.Toolkit;
 
-import com.wowowo.view.BaseFrame;
-import com.wowowo.view.MyPanel;
+import view.BaseFrame;
+import view.MyPanel;
 
 public class Enemy001 extends Enemy{
 	

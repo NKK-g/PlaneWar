@@ -1,14 +1,13 @@
-package com.wowowo.model;
+package model;
 
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 
-import com.wowowo.thread.BulletMusicThread;
-
-import com.wowowo.view.BaseFrame;
-import com.wowowo.view.MyPanel;
+import thread.BulletMusicThread;
+import view.BaseFrame;
+import view.MyPanel;
 
 public class Enemy {
 	

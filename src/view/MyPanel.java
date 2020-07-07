@@ -1,5 +1,6 @@
-package com.wowowo.view;
+package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -9,12 +10,12 @@ import java.util.ArrayList;
 import javax.accessibility.AccessibleRelation;
 import javax.swing.JPanel;
 
-import com.wowowo.model.Bullet;
-import com.wowowo.model.Enemy;
-import com.wowowo.model.Item;
-import com.wowowo.model.Player;
-import com.wowowo.thread.BulletMusicThread;
-import com.wowowo.thread.DrawableThread;
+import model.Bullet;
+import model.Enemy;
+import model.Item;
+import model.Player;
+import thread.BulletMusicThread;
+import thread.DrawableThread;
 
 public class MyPanel extends JPanel {
 	
@@ -48,7 +49,7 @@ public class MyPanel extends JPanel {
 		this.drawableThread.start();
 	}
 	
-	//注意这里是paintComponent 不是 paintComponents
+	
 	@Override
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
@@ -133,7 +134,7 @@ public class MyPanel extends JPanel {
 				  bullets.add(bullet5);
 				
 			  }
-			 
+			  new BulletMusicThread("video/bullet.wav").start();
 		  }
 		  
 		 
@@ -150,7 +151,7 @@ public class MyPanel extends JPanel {
 			  {
 				  if(this.enemiesType.size()>0)
 				  {
-					  int index=(int)Math.random()*(this.enemiesType.size());
+					  int index=(int)(Math.random()*(this.enemiesType.size()));
 					  
 					  try {
 						Enemy enemy=(Enemy)this.enemiesType.get(index).getConstructors()[0].newInstance(new Object[]{this});
@@ -178,6 +179,12 @@ public class MyPanel extends JPanel {
 			   {
 				  items.get(i).drawSelf(g);
 			   }
+			   
+			   //画分数		
+				
+				g.setColor(Color.WHITE);
+				g.drawString(""+player.count, BaseFrame.frameWidth - 100, 15);
+				
 			 
 			  
 		 

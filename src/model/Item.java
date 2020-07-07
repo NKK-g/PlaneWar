@@ -1,10 +1,10 @@
-package com.wowowo.model;
+package model;
 
 import java.awt.Graphics;
 import java.awt.Image;
 
-import com.wowowo.view.BaseFrame;
-import com.wowowo.view.MyPanel;
+import view.BaseFrame;
+import view.MyPanel;
 
 public class Item {
 	
@@ -25,6 +25,8 @@ public class Item {
 	 public int speed;
 	 
 	 public int imageSpeed;
+	 
+	 public int count; //道具对应的分数
 	 
 	 
 	 public Item(MyPanel myPanel)
@@ -56,7 +58,10 @@ public class Item {
 	 
 	 public void eated()
 	 {
-		   this.myPanel.items.remove(this);
+		 //当道具被吃掉，应该将其分数累加到玩家的总分中
+		 this.myPanel.player.count+=this.count;
+		 
+		 this.myPanel.items.remove(this);
 	 }
 
 }

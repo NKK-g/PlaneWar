@@ -1,4 +1,4 @@
-package com.wowowo.thread;
+package thread;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
