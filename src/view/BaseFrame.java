@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import com.wowowo.listener.FrameMouseListener;
 import com.wowowo.listener.FrameMouseMotionListener;
+import com.wowowo.model.Enemy001;
 
 public class BaseFrame extends JFrame {
 	
@@ -34,6 +35,12 @@ public class BaseFrame extends JFrame {
 //		   this.addMouseMotionListener(this.frameMouseMotionListener);
 //	}
 	
+	 public void addEnemyType(Class c)
+	 {
+		   this.panel.enemiesType.add(c);
+	 }
+	
+	
 	public BaseFrame()
 	{
 	 super("·É»ú´óÕ½");
@@ -50,6 +57,8 @@ public class BaseFrame extends JFrame {
 	 setTouchListener();
 	 
 	 //setMouseMotionListener();
+	 
+	 addEnemyType(Enemy001.class);
 	 
 	 setVisible(true);
 	 

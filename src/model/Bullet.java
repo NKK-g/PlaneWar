@@ -51,6 +51,23 @@ public class Bullet {
 				  this.myPanel.bullets.remove(this);  			  
 		  }
 		  
+		  //判断是否击中敌人
+		  for(int i=0;i<myPanel.enemies.size();i++)
+		  {
+			   Enemy e=myPanel.enemies.get(i);
+			   
+			   if(e.hp<0)
+				   continue;
+			   
+			   if(this.x>=e.x-this.width && this.x<=e.x+e.width && this.y>=e.y-this.height && this.y<=e.y+e.height)
+			   {
+				    //击中了
+				   myPanel.enemies.remove(this);
+				   
+				   e.underAttack();
+			   }
+		  }
+		  
 		 
 		
 	}

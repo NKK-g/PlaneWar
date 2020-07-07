@@ -3,12 +3,14 @@ package com.wowowo.view;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import javax.accessibility.AccessibleRelation;
 import javax.swing.JPanel;
 
 import com.wowowo.model.Bullet;
+import com.wowowo.model.Enemy;
 import com.wowowo.model.Player;
 import com.wowowo.thread.BulletMusicThread;
 import com.wowowo.thread.DrawableThread;
@@ -27,6 +29,11 @@ public class MyPanel extends JPanel {
 	public Player player;
 	
 	public ArrayList<Bullet> bullets=new ArrayList<Bullet>();
+	
+	public ArrayList<Enemy> enemies=new ArrayList<Enemy>();
+	  
+	public ArrayList<Class> enemiesType=new ArrayList<Class>();
+	  
 	
 	public MyPanel()
 	{
@@ -124,7 +131,7 @@ public class MyPanel extends JPanel {
 				  bullets.add(bullet5);
 				
 			  }
-			 
+			
 		  }
 		  
 		 
@@ -133,6 +140,36 @@ public class MyPanel extends JPanel {
 		   {
 			  this.bullets.get(i).drawSelf(g);
 		   }
+		   
+		   
+		   
+			  //´´½¨µÐÈË
+			  if(this.timer%200==0)
+			  {
+				  if(this.enemiesType.size()>0)
+				  {
+					  int index=(int)(Math.random()*(this.enemiesType.size()));
+					  
+					  try {
+						Enemy enemy=(Enemy)this.enemiesType.get(index).getConstructors()[0].newInstance(new Object[]{this});
+					
+						enemies.add(enemy);
+					  
+					  } catch (InstantiationException | IllegalAccessException
+							| IllegalArgumentException | InvocationTargetException
+							| SecurityException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				  }
+				  
+			  }
+			  
+			  for(int i=0;i<enemies.size();i++)
+			  {
+				  enemies.get(i).drawSelf(g);
+			  }
+			  
 		 
 		
 		
