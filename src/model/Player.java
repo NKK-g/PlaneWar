@@ -34,7 +34,7 @@ public class Player {
 	 
 	 public int imageIndex=0;
 	 
-	 public int attackMode=0;
+	 public int attackMode=2; //»ðÁ¦µÈ¼¶
 	
 	 public Player(MyPanel myPanel)
 	 {

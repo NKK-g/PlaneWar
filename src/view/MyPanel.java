@@ -3,11 +3,14 @@ package com.wowowo.view;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.accessibility.AccessibleRelation;
 import javax.swing.JPanel;
 
+import com.wowowo.model.Bullet;
 import com.wowowo.model.Player;
+import com.wowowo.thread.BulletMusicThread;
 import com.wowowo.thread.DrawableThread;
 
 public class MyPanel extends JPanel {
@@ -22,6 +25,8 @@ public class MyPanel extends JPanel {
 	public DrawableThread drawableThread;
 	
 	public Player player;
+	
+	public ArrayList<Bullet> bullets=new ArrayList<Bullet>();
 	
 	public MyPanel()
 	{
@@ -58,6 +63,77 @@ public class MyPanel extends JPanel {
 		}
 		
 		this.player.drawSelf(g);
+		
+		 //创建子弹
+		  if(this.timer%100==0)
+		  {
+			  if(this.player.attackMode==1)
+			  {
+				   Bullet bullet=new Bullet(this);
+				   bullet.x=this.player.x+this.player.width/2-bullet.width/2;
+				   bullet.y=this.player.y;
+				   this.bullets.add(bullet);
+				  
+			  }
+			  else if(this.player.attackMode==2)
+			  {
+				   Bullet bullet1=new Bullet(this);
+				   bullet1.x=this.player.x+this.player.width/2-bullet1.width/2;
+				   bullet1.y=this.player.y-15;
+				   this.bullets.add(bullet1);
+				   
+				   Bullet bullet2=new Bullet(this);
+				   bullet2.x=this.player.x+this.player.width/2-bullet2.width/2- bullet2.width - 5;
+				   bullet2.y=this.player.y;
+				   this.bullets.add(bullet2);
+				   
+				   
+				   Bullet bullet3=new Bullet(this);
+				   bullet3.x=this.player.x+this.player.width/2- bullet3.width/2 + bullet3.width + 5;
+				   bullet3.y=this.player.y;
+				   this.bullets.add(bullet3);
+				   
+				
+				  
+			  }
+			  else if(this.player.attackMode==3)
+			  {
+				  Bullet bullet1 = new Bullet(this);
+				  bullet1.x = player.x + player.width / 2 - bullet1.width/2;
+				  bullet1.y = player.y - 30;
+				  bullets.add(bullet1);
+					
+				  Bullet bullet2 = new Bullet(this);
+				  bullet2.x = player.x + player.width / 2 - bullet2.width/2 - bullet2.width - 5;
+				  bullet2.y = player.y - 15;
+				  bullets.add(bullet2);
+					
+				  Bullet bullet3 = new Bullet(this);
+				  bullet3.x = player.x + player.width / 2 - bullet3.width/2 + bullet3.width + 5;
+				  bullet3.y = player.y - 15;
+				  bullets.add(bullet3);
+					
+				  Bullet bullet4 = new Bullet(this);
+				  bullet4.x = player.x + player.width / 2 - bullet4.width/2 - 2*bullet4.width - 10;
+				  bullet4.y = player.y;
+				  bullets.add(bullet4);
+					
+				  Bullet bullet5 = new Bullet(this);
+				  bullet5.x = player.x + player.width / 2 - bullet5.width/2 + 2*bullet5.width +10;
+				  bullet5.y = player.y;
+				  bullets.add(bullet5);
+				
+			  }
+			 
+		  }
+		  
+		 
+		   //画出所有创建出来的子弹
+		   for(int i=0;i<bullets.size();i++)
+		   {
+			  this.bullets.get(i).drawSelf(g);
+		   }
+		 
 		
 		
 	}
