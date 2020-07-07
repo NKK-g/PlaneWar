@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import javax.accessibility.AccessibleRelation;
 import javax.swing.JPanel;
 
+import com.wowowo.model.Player;
 import com.wowowo.thread.DrawableThread;
 
 public class MyPanel extends JPanel {
@@ -20,9 +21,13 @@ public class MyPanel extends JPanel {
 	
 	public DrawableThread drawableThread;
 	
+	public Player player;
+	
 	public MyPanel()
 	{
 		this.bgImage=Toolkit.getDefaultToolkit().getImage("images/bg01.jpg");
+		
+		this.player=new Player(this);		
 		
 		this.drawableThread=new DrawableThread(this);
 		
@@ -51,6 +56,8 @@ public class MyPanel extends JPanel {
 				top = 0;
 			}
 		}
+		
+		this.player.drawSelf(g);
 		
 		
 	}
