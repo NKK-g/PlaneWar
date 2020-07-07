@@ -67,7 +67,6 @@ public class Bullet {
 				   e.underAttack();
 			   }
 		  }
-		  
 		 
 		
 	}

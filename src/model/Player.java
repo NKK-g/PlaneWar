@@ -58,6 +58,15 @@ public class Player {
 				   imageIndex=0;
 		   }
 		   
+		   //判断是否吃到道具
+		   for(int i=0;i<this.myPanel.items.size();i++)
+		   {
+			     Item item=this.myPanel.items.get(i);
+			     
+			     if((this.x>=item.x-this.width && this.x<=item.x+item.width) && (this.y>=item.y-this.height && this.y<=item.y+item.height))
+			    	  item.eated();
+		   }
+		   
 		 
 		  
 	 }

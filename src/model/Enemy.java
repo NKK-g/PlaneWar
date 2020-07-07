@@ -28,6 +28,8 @@ public class Enemy {
 	
 	public int speed;
 	
+	public Item[] items;
+	
 	public Image[] dieImages=new Image[]{
 			
 			Toolkit.getDefaultToolkit().getImage("images/die01.png"),
@@ -77,6 +79,21 @@ public class Enemy {
 	{
 		 		 
 		  myPanel.enemies.remove(this);
+		  
+		  //ÊÍ·ÅµÀ¾ß
+		  if(this.items.length>0)
+		  {			  
+			  for(int i=0;i<items.length;i++)
+			  {
+			     Item item=this.items[i];
+			     
+			     item.y=this.y;
+			     
+			     item.x=this.x+20*i;
+			     
+			     myPanel.items.add(item);			     
+			  }			  
+		  }
 		  
 		  
 	}

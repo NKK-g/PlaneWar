@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import com.wowowo.model.Bullet;
 import com.wowowo.model.Enemy;
+import com.wowowo.model.Item;
 import com.wowowo.model.Player;
 import com.wowowo.thread.BulletMusicThread;
 import com.wowowo.thread.DrawableThread;
@@ -34,6 +35,7 @@ public class MyPanel extends JPanel {
 	  
 	public ArrayList<Class> enemiesType=new ArrayList<Class>();
 	  
+	public ArrayList<Item> items=new ArrayList<Item>();
 	
 	public MyPanel()
 	{
@@ -131,7 +133,7 @@ public class MyPanel extends JPanel {
 				  bullets.add(bullet5);
 				
 			  }
-			
+			 
 		  }
 		  
 		 
@@ -148,7 +150,7 @@ public class MyPanel extends JPanel {
 			  {
 				  if(this.enemiesType.size()>0)
 				  {
-					  int index=(int)(Math.random()*(this.enemiesType.size()));
+					  int index=(int)Math.random()*(this.enemiesType.size());
 					  
 					  try {
 						Enemy enemy=(Enemy)this.enemiesType.get(index).getConstructors()[0].newInstance(new Object[]{this});
@@ -169,6 +171,14 @@ public class MyPanel extends JPanel {
 			  {
 				  enemies.get(i).drawSelf(g);
 			  }
+			  				  
+			 
+			   //»­³öµÀ¾ß
+			   for(int i=0;i<items.size();i++)
+			   {
+				  items.get(i).drawSelf(g);
+			   }
+			 
 			  
 		 
 		

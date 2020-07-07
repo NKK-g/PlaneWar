@@ -24,7 +24,13 @@ public class Enemy001 extends Enemy{
 		  this.speed=3;
 		  
 		  this.image=Toolkit.getDefaultToolkit().getImage("images/enemy01.png");
-		 
+		  
+		  this.items=new Item[]{
+				  new Item01(myPanel),
+				  new Item01(myPanel),
+				  new Item01(myPanel)
+		  };		
+		  
 		  
 	  }
 
